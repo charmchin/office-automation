@@ -16,7 +16,6 @@ public class DruidDataSourceFactory extends UnpooledDataSourceFactory {
         }
         return this.dataSource;
     }
-
     public DruidDataSourceFactory() {
         this.dataSource = new DruidDataSource();
     }
