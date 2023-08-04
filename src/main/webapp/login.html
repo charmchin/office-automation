@@ -77,7 +77,7 @@
                             if (json.code=="0"){
                                 window.location.href="/index.html";
                             }else {
-                                
+                                $message.error({message:json,offset:100});//是对话框的显示美观些
                             }
                         });
                     }
