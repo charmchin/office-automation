@@ -64,6 +64,13 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.12.3</version>
         </dependency>
+<!--        MD5加密-->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.15</version>
+        </dependency>
     </dependencies>
 
 </project>
+        <!--注意，在项目中加入了任何新的Maven依赖，都要让新加入的依赖加入到INF的web目录下-->
