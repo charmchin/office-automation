@@ -3,6 +3,7 @@ package com.chin.oa.service;
 import com.chin.oa.entity.User;
 import com.chin.oa.mapper.UserMapper;
 import com.chin.oa.service.exception.LoginException;
+import com.chin.oa.utils.Md5Utils;
 
 public class UserService {//遵循MVC，写业务逻辑类
     private UserMapper userMapper = new UserMapper();
@@ -19,11 +20,8 @@ public class UserService {//遵循MVC，写业务逻辑类
         if(user == null){
             throw new LoginException("用户名不存在");
         }
-//        String md5 = Md5Utils.md5Digest(password, user.getSalt());
-//        if(!md5.equals(user.getPassword())){
-//            throw new LoginException("密码错误");
-//        }
-        if (!password.equals(user.getPassword())) {
+        String md5 = Md5Utils.md5Digest(password, user.getSalt());
+        if (!md5.equals(user.getPassword())) {
             throw new LoginException("密码错误");
         }
         return user;
