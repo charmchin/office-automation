@@ -20,8 +20,11 @@
             </dataSource>
         </environment>
     </environments>
+<!--    每一次xml写好后都要到mybatis配置文件中进行注册，注册好后，再去写mapper！-->
     <mappers>
         <mapper resource="mappers/test.xml"/>
         <mapper resource="mappers/user.xml"/>
+        <mapper resource="mappers/rbac.xml"/>
+        <mapper resource="mappers/employee.xml"/>
     </mappers>
 </configuration>
