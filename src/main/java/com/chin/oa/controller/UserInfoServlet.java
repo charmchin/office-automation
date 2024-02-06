@@ -1,6 +1,8 @@
 package com.chin.oa.controller;
 
+import com.chin.oa.entity.Employee;
 import com.chin.oa.entity.Node;
+import com.chin.oa.service.EmployeeService;
 import com.chin.oa.service.RbacService;
 import com.chin.oa.utils.ResponseUtils;
 
@@ -18,6 +20,7 @@ import java.util.Map;
 @WebServlet("/api/user_info")
 public class UserInfoServlet extends HttpServlet {
     private RbacService rbacService = new RbacService();
+    private EmployeeService employeeService = new EmployeeService();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String uid = request.getParameter("uid");
@@ -36,12 +39,12 @@ public class UserInfoServlet extends HttpServlet {
                 children.add(node);
             }
         }
-//        Employee employee = employeeService.selectById(Long.parseLong(eid));
+        Employee employee = employeeService.selectById(Long.parseLong(eid));
 //        Department department = departmentService.selectById(employee.getDepartmentId());
-//        String json = new ResponseUtils().put("nodeList", treeList).put("employee",employee).put("department",department).toJsonString();
+        String json = new ResponseUtils().put("nodeList", treeList).put("employee",employee).toJsonString();
 //        response.setContentType("application/json;charset=utf-8");
 //        response.getWriter().println(json);
-        String json = new ResponseUtils().put("nodeList",treeList).toJsonString();
+//        String json = new ResponseUtils().put("nodeList",treeList).toJsonString();
         response.setContentType("application/json;charset=utf-8");
         response.getWriter().println(json);
     }

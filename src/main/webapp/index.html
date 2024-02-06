@@ -35,12 +35,13 @@
 <!--                        写上面这行代码的时候，在style前多写一个分号，搞半天！！！-->
                         <el-dropdown>
                             <i class="el-icon-s-check" style="font-size: 18px;margin-right: 15px">
-                                <span style="margin-right: 15px">张三[研发工程师]</span>
+<!--                                右上角人名和职位显示写法-->
+                                <span style="margin-right: 15px">{{employee.name}}[{{employee.title}}]</span>
                             </i>
                             <template #dropdown>
                                 <el-dropdown-menu>
 <!--                                    这里el标签，误生成del，导致生成的下拉项显示不对-->
-                                    <el-dropdown-item>注销</el-dropdown-item>
+                                    <el-dropdown-item v-on:click="logout">注销</el-dropdown-item>
                                 </el-dropdown-menu>
                             </template>
                         </el-dropdown>
@@ -73,17 +74,24 @@
         const Main = {
             data() {
                 return {
-                    nodeList:[]
+                    nodeList:[],
+                    employee:{}
                 }
             }
             ,methods:{
                 showPage(url){
                     document.getElementById("main").src = url;
                 }
+                ,logout() {//注销函数实现
+                    sessionStorage.clear();
+                    window.location.href="/login.html";
+                }
             }
             ,mounted(){
                 const objApp = this;
-                axios.get("/api/user_info?uid="+sessionStorage.uid)
+                const eid = sessionStorage.eid;
+                const uid = sessionStorage.uid;
+                axios.get("/api/user_info?uid="+uid+"&eid="+eid)
                 .then(function (response){
                     const json = response.data;
                     console.info(json);
@@ -91,6 +99,7 @@
                         objApp.nodeList.push(item);
                     })
                     console.info(objApp.nodeList);
+                    objApp.employee = json.data.employee;
                 })
             }
         };
