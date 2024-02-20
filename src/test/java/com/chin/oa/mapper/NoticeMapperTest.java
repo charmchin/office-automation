@@ -9,7 +9,8 @@ import static org.junit.Assert.*;
 public class NoticeMapperTest {
 
     @Test
-    public void insert() {
+    public void insert
+            () {
         MybatisUtils.executeUpdate(sqlSession -> {
             NoticeMapper mapper = sqlSession.getMapper(NoticeMapper.class);
             mapper.insert(new Notice(2l,"测试消息"));
