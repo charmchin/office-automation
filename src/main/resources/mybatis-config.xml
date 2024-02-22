@@ -29,6 +29,7 @@
         <mapper resource="mappers/leave_form.xml"/>
         <mapper resource="mappers/process_flow.xml"/>
         <mapper resource="mappers/notice.xml"/>
+        <mapper resource="mappers/department.xml"/>
     </mappers>
 </configuration>
 <!--之后进行单元测试，找到接口，生成测试用例-->
