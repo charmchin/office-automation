@@ -13,12 +13,21 @@
             f.form_id=pf.form_id
           and f.employee_id = e.employee_id
           and e.department_id = d.department_id
-<if test="pf_state!=null">
-    and pf.state= #{pf_state}
-</if>
-<if test="pf_operator_id!=null">
-    and pf.operator_id = #{pf_operator_id}
-</if>
+        <if test="pf_state!=null">
+            and pf.state= #{pf_state}
+        </if>
+        <if test="pf_operator_id!=null">
+            and pf.operator_id = #{pf_operator_id}
+        </if>
     </select>
+
+    <update id="update" parameterType="com.chin.oa.entity.LeaveForm">
+        UPDATE adm_leave_form SET employee_id = #{employeeId} , form_type = #{formType}, start_time = #{startTime}, end_time = #{endTime}, reason = #{reason}, state = #{state} ,create_time = #{createTime} WHERE form_id = #{formId}
+    </update>
+
+    <select id="selectById" parameterType="Long" resultType="com.chin.oa.entity.LeaveForm">
+        select * from adm_leave_form where form_id = #{value}
+    </select>
+<!--    之后到leaveFormMapper中增加方法的定义-->
 </mapper>
 <!--keyColumn代表数据表中的哪个字段是主键名！！！ 写好后，到 mybatis-config.xml中进行注册-->

@@ -141,6 +141,15 @@
                             .then(function (response) {
                                 const json = response.data;
                                 console.info(json);
+                                if (json.code == "0"){
+                                    objApp.$alert("请假已审批完成",{
+                                        callback:function (){
+                                            window.location.href = "/notice.html";
+                                        }
+                                    })
+                                }else {
+                                    objApp.$message.error({message: json.message,offset: 100})
+                                }
                             })
                     }
                 })
