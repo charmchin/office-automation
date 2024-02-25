@@ -42,7 +42,7 @@
 
   在CDN内容分发网络下载好element plus后复制到如下目录中：
 
-  ![image-20240225122402426](E:\repositories\office-automation\README01.assets\image-20240225122402426.png)
+  ![image-20240225122402426](E:\repositories\office-automation\README.assets\image-20240225122402426.png)
 
   axios和后台进行交互。
 
@@ -65,7 +65,7 @@ HTML视图层（View）——Servlet 控制层（Controller）—— Service业�
 - 是面向企业安全策略的访问控制方式，核心思想是将控制访问的资源与角色（role）的绑定
 - 系统的用户（User）与角色（Role）再进行绑定，用户便拥有对应权限
 
-![image-20240225122320301](E:\repositories\office-automation\README01.assets\image-20240225122320301.png)
+![image-20240225122320301](E:\repositories\office-automation\README.assets\image-20240225122320301.png)
 
 *编号：没啥意义的数字；而编码包含了更多的信息。* 
 
@@ -81,7 +81,7 @@ HTML视图层（View）——Servlet 控制层（Controller）—— Service业�
 
 先创建一个实体类（entity），接着在mapper 下创建接口类，然后在resource 目录下的 mappers目录下书写对应的xml 文件，接着再到mybatis-config.xml 文件里面进行注册。配置好后，然后就是生成测试用例。在mapper 包下的文件里双击方法名后，用idea 自动创建测试用例。
 
-![image-20240225122546032](E:\repositories\office-automation\README01.assets\image-20240225122546032.png)
+![image-20240225122546032](E:\repositories\office-automation\README.assets\image-20240225122546032.png)
 
 - 2，在MVC 中只能是service 对mapper 进行调用，这是一个标准，其他的都是违规的。
 
